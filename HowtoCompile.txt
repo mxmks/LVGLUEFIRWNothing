@@ -1,0 +1,34 @@
+1.下载EDK2最新Code，Stdlib C
+https://github.com/tianocore/edk2
+https://github.com/tianocore/edk2-libc
+
+2.安装Tool:
+VS2017, Python3, nasm, asl
+
+3.编译
+VS2017 Cmd
+
+set NASM_PREFIX=C:\nasm\
+set IASL_PREFIX=C:\ASL\
+set WORKSPACE=C:\vEDK2\
+set PACKAGES_PATH=C:\vEDK2\
+set PYTHON_HOME=C:\Python39\
+
+第一次执行，要先编译basetools\win32下的工具
+Cd C:\vEDK2\
+Edksetup.bat rebuild
+
+如果不是第一次执行
+Cd C:\vEDK2\
+Edksetup.bat
+
+编译模拟器
+build -p EmulatorPkg\EmulatorPkg.dsc -t VS2017 -a X64
+运行模拟，
+cd Build\EmulatorX64\DEBUG_VS2017\X64\ && WinHost.exe
+
+编译AppPkg
+将Lvgl文件夹放太AppPkg\Application下，inf加入dsc中
+Build App pkg
+build -a X64 -p AppPkg\AppPkg.dsc -t VS2017
+

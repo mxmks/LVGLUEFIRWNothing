@@ -1,0 +1,233 @@
+## @file
+# Lua.inf
+#
+#  UEFI port of the Lua scripting language, Lua 5.2.3, released on 11 Nov 2013
+#
+#  Copyright (c) 2014, Emulex Corporation  3333 Susan Street, Costa Mesa, CA 92626
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all copies or substantial portions of the Software.
+#
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#  THE SOFTWARE.
+#
+##
+
+[Defines]
+  INF_VERSION    = 0x00010006
+  BASE_NAME      = Lvgl
+  FILE_GUID      = 2F818850-3631-4584-98BD-227EEC649802
+  MODULE_TYPE    = UEFI_APPLICATION
+  VERSION_STRING = 0.1
+  ENTRY_POINT    = ShellCEntryLib
+
+[Sources]
+  Lvgl.c
+
+  #src/lv_core/
+  src/lv_core/lv_group.c
+  src/lv_core/lv_indev.c
+  src/lv_core/lv_disp.c
+  src/lv_core/lv_obj.c
+  src/lv_core/lv_refr.c
+  src/lv_core/lv_style.c
+
+  #src/lv_draw/
+  src/lv_draw/lv_draw_mask.c
+  src/lv_draw/lv_draw_blend.c
+  src/lv_draw/lv_draw_rect.c
+  src/lv_draw/lv_draw_label.c
+  src/lv_draw/lv_draw_line.c
+  src/lv_draw/lv_draw_img.c
+  src/lv_draw/lv_draw_arc.c
+  src/lv_draw/lv_draw_triangle.c
+  src/lv_draw/lv_img_decoder.c
+  src/lv_draw/lv_img_cache.c
+  src/lv_draw/lv_img_buf.c
+
+  #src/lv_font/
+  src/lv_font/lv_font.c
+  src/lv_font/lv_font_fmt_txt.c
+  src/lv_font/lv_font_loader.c
+  src/lv_font/lv_font_montserrat_12.c
+  src/lv_font/lv_font_montserrat_14.c
+  src/lv_font/lv_font_montserrat_16.c
+  src/lv_font/lv_font_montserrat_18.c
+  src/lv_font/lv_font_montserrat_20.c
+  src/lv_font/lv_font_montserrat_22.c
+  src/lv_font/lv_font_montserrat_24.c
+  src/lv_font/lv_font_montserrat_26.c
+  src/lv_font/lv_font_montserrat_28.c
+  src/lv_font/lv_font_montserrat_30.c
+  src/lv_font/lv_font_montserrat_32.c
+  src/lv_font/lv_font_montserrat_34.c
+  src/lv_font/lv_font_montserrat_36.c
+  src/lv_font/lv_font_montserrat_38.c
+  src/lv_font/lv_font_montserrat_40.c
+  src/lv_font/lv_font_montserrat_42.c
+  src/lv_font/lv_font_montserrat_44.c
+  src/lv_font/lv_font_montserrat_46.c
+  src/lv_font/lv_font_montserrat_48.c
+  src/lv_font/lv_font_montserrat_12_subpx.c
+  src/lv_font/lv_font_montserrat_28_compressed.c
+  src/lv_font/lv_font_unscii_8.c
+  src/lv_font/lv_font_dejavu_16_persian_hebrew.c  
+
+  #src/lv_gpu/
+  src/lv_gpu/lv_gpu_stm32_dma2d.c
+
+  #src/lv_hal/
+  src/lv_hal/lv_hal_disp.c
+  src/lv_hal/lv_hal_indev.c
+  src/lv_hal/lv_hal_tick.c
+
+  #src/lv_misc/
+  src/lv_misc/lv_area.c
+  src/lv_misc/lv_task.c
+  src/lv_misc/lv_fs.c
+  src/lv_misc/lv_anim.c
+  src/lv_misc/lv_mem.c
+  src/lv_misc/lv_ll.c
+  src/lv_misc/lv_color.c
+  src/lv_misc/lv_txt.c
+  src/lv_misc/lv_txt_ap.c
+  src/lv_misc/lv_math.c
+  src/lv_misc/lv_log.c
+  src/lv_misc/lv_gc.c
+  src/lv_misc/lv_utils.c
+  src/lv_misc/lv_async.c
+  src/lv_misc/lv_printf.c
+  src/lv_misc/lv_bidi.c
+  src/lv_misc/lv_debug.c
+
+  #src/lv_themes/
+  src/lv_themes/lv_theme.c
+  src/lv_themes/lv_theme_material.c
+  src/lv_themes/lv_theme_mono.c
+  src/lv_themes/lv_theme_empty.c
+  src/lv_themes/lv_theme_template.c
+
+  #src/lv_widgets/
+  src/lv_widgets/lv_arc.c
+  src/lv_widgets/lv_bar.c
+  src/lv_widgets/lv_checkbox.c
+  src/lv_widgets/lv_cpicker.c
+  src/lv_widgets/lv_dropdown.c
+  src/lv_widgets/lv_keyboard.c
+  src/lv_widgets/lv_line.c
+  src/lv_widgets/lv_msgbox.c
+  src/lv_widgets/lv_spinner.c
+  src/lv_widgets/lv_roller.c
+  src/lv_widgets/lv_table.c
+  src/lv_widgets/lv_tabview.c
+  src/lv_widgets/lv_tileview.c
+  src/lv_widgets/lv_btn.c
+  src/lv_widgets/lv_calendar.c
+  src/lv_widgets/lv_chart.c
+  src/lv_widgets/lv_canvas.c
+  src/lv_widgets/lv_gauge.c
+  src/lv_widgets/lv_label.c
+  src/lv_widgets/lv_list.c
+  src/lv_widgets/lv_slider.c
+  src/lv_widgets/lv_textarea.c
+  src/lv_widgets/lv_spinbox.c
+  src/lv_widgets/lv_btnmatrix.c
+  src/lv_widgets/lv_cont.c
+  src/lv_widgets/lv_img.c
+  src/lv_widgets/lv_imgbtn.c
+  src/lv_widgets/lv_led.c
+  src/lv_widgets/lv_linemeter.c
+  src/lv_widgets/lv_page.c
+  src/lv_widgets/lv_switch.c
+  src/lv_widgets/lv_win.c
+  src/lv_widgets/lv_objmask.c
+
+  src/indev/keyboard.c
+  src/indev/mouse.c
+
+  #src/lv_demo_keypad_encoder/lv_demo_keypad_encoder.c
+
+  ## img
+  img/img_board_png.c
+  img/img_pci_png.c
+  img/img_pcipress_png.c
+  img/img_pciidx_png.c
+  img/img_pciidxpress_png.c
+  img/img_mem_png.c
+  img/img_mempress_png.c
+  img/img_memidx_png.c
+  img/img_memidxpress_png.c
+  img/img_io_png.c
+  img/img_iopress_png.c
+  img/img_ioidx_png.c
+  img/img_ioidxpress_png.c
+  img/img_sio_png.c
+  img/img_siopress_png.c
+  img/img_clk_png.c
+  img/img_clkpress_png.c
+  img/img_spd_png.c
+  img/img_spdpress_png.c
+  img/img_smbus_png.c
+  img/img_smbuspress_png.c
+  img/img_msr_png.c
+  img/img_msrpress_png.c
+  img/img_mmio_png.c
+  img/img_mmiopress_png.c
+  img/img_acpi_png.c
+  img/img_acpipress_png.c
+  img/img_ec_png.c
+  img/img_ecpress_png.c
+  img/img_hddcd_png.c
+  img/img_hddcdpress_png.c
+  img/img_diskrw_png.c
+  img/img_diskrwpress_png.c
+  img/img_usb_png.c
+  img/img_usbpress_png.c
+  img/img_smbios_png.c
+  img/img_smbiospress_png.c
+  img/img_pciopt_png.c
+  img/img_pcioptpress_png.c
+  img/img_mps_png.c
+  img/img_mpspress_png.c
+  img/img_e820_png.c
+  img/img_e820press_png.c
+  img/img_edid_png.c
+  img/img_edidpress_png.c
+  img/img_help_png.c
+  img/img_helppress_png.c
+  img/img_exit_png.c
+  img/img_exitpress_png.c
+
+
+[Packages]
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  LibC
+  LibStdio
+  LibStdLib
+  LibSignal
+  LibString
+  LibMath
+  LibTime
+  DevShell
+  UefiLib
+  ShellCEntryLib
+
+
+[Protocols]
+  gEfiGraphicsOutputProtocolGuid
+  gEfiSimplePointerProtocolGuid
